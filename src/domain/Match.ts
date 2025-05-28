@@ -5,15 +5,16 @@ export class Match{
     constructor(private local_team: string, private away_team: string, private local_team_result: number, private away_team_result: number, private date: Date){}
 
     async createTeams(): Promise<any>{
-        const local_team = await findTeam(this.local_team)
-        const away_team = await findTeam(this.away_team)
-        if ( !local_team || !away_team) return "Equipos no existen"
-        if(this.local_team_result === this.away_team_result)
-            this.tieResult(local_team, away_team);
-        else if(this.local_team_result > this.away_team_result)
-            this.localTeamVictory(local_team, away_team);
-        else if(this.local_team_result < this.away_team_result)
-            this.awayTeamVictory(local_team, away_team);
+        try{
+            const local_team = await findTeam(this.local_team)
+            const away_team = await findTeam(this.away_team)
+            if ( !local_team || !away_team) return "Equipos no existen"
+            if(this.local_team_result === this.away_team_result)
+                this.tieResult(local_team, away_team);
+            else if(this.local_team_result > this.away_team_result)
+                this.localTeamVictory(local_team, away_team);
+            else if(this.local_team_result < this.away_team_result)
+                this.awayTeamVictory(local_team, away_team);
 
         const saveMatches = await MatchModel.create({
             local_team: this.local_team,
@@ -24,6 +25,11 @@ export class Match{
         })
 
         return "Partido creado exitosamente"
+        }catch (error) {
+            console.error("Error al crear el partido:", error);
+            throw new Error("Error al crear el partido");
+        }
+        
     }
 
     tieResult(local_team: Team, away_team: Team): void{

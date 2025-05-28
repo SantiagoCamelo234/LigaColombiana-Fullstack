@@ -13,10 +13,16 @@ app.use(express.json());
 app.use("/api", teamRouter)
 app.use("/api", matchRouter)
 const startServer = async () => {
-    await connectDB()
-    app.listen(PORT, '0.0.0.0', () => {
+    try{
+        await connectDB()
+        app.listen(PORT, '0.0.0.0', () => {
         console.log(`Servidor corriendo en http://localhost:${PORT}`)
     });
+    }catch (error) {
+        console.error("Error al iniciar el servidor:", error);
+        process.exit(1); // Salir del proceso si hay un error
+    }
+    
     
 }
 
