@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta >
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="main-header">
+        <img src="./src/assets/Dimayor_Colombia_logo.svg.png" alt="Logo Liga BetPlay" class="logo">
+        <h1 class="title">Liga BetPlay DIMAYOR</h1>
+      </header>
+      
+    <div class="container"></div>
+    
+    <div class = "table-container">
+        <h2 >Tabla de clasificacion</h2>
+        <div id="position-table">
+        </div>
+        <button id = 'create-team'> Agregar Equipo</button>
+        
+        <button id = 'add-result'> Agregar Resultado</button>
+    
+        <div id = 'create-team-section'>
+            <form action="submit" id = 'create-team-form'>
+                <label for="name"> Nombre del equipo</label>
+                <!-- <input type="text" id="name" name="name"> --> 
+                <select id="name" name = "name">
+                    <option value="Alianza FC">Alianza FC</option>
+                    <option value="America de Cali">America de Cali</option>
+                    <option value="Atletico Junior">Atletico Junior</option>
+                    <option value="Atletico Nacional">Atletico Nacional</option>
+                    <option value="Boyaca Chico">Boyaca Chico</option>
+                    <option value="Bucaramanga">Bucaramanga</option>
+                    <option value="Deportes Tolima">Deportes Tolima</option>
+                    <option value="Deportivo Cali">Deportivo Cali</option>
+                    <option value="Deportivo Pasto">Deportivo Pasto</option>
+                    <option value="Deportivo Pereira">Deportivo Pereira</option>
+                    <option value="Envigado">Envigado</option>
+                    <option value="Fortaleza CEIF">Fortaleza CEIF</option>
+                    <option value="Independiente Medellin">Independiente Medellin</option>
+                    <option value="Independiente Santa Fe">Independiente Santa Fe</option>
+                    <option value="La Equidad">La Equidad</option>
+                    <option value="Llaneros">Llaneros</option>
+                    <option value="Millonarios">Millonarios</option>
+                    <option value="Once Caldas">Once Caldas</option>
+                    <option value="Union Magadalena">Union Magadalena</option>
+                    <option value="Aguilas Doradas">Aguilas Doradas</option>
+                </select>
+                <button id="create-team-button"> Agregar </button>
+            </form>
+        </div>
+        <div id = 'add-result-section'>
+            <!-- Agregar Resultado -->
+            <form action="submit" id = 'add-result-form'>
+                <label for="team1"> Selecciona equipo </label>
+                <select name="team1" id="team1">
+                    <option value="">-- Selecciona un equipo --</option>
+                </select>
+                <label for="team2"> Selecciona equipo</label>
+                <select name="team2" id="team2">
+                    <option value="">-- Selecciona un equipo --</option>
+                </select>
+                <label for="result1" id="result1label"></label>
+                <input type="number" id="result1" name="result1" min="0">
+                <label for="result2" id="result2label"></label>
+                <input type="number" id="result2" name="result2" min="0">
+
+                <button id = "add-result-button"> Agregar </button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="last-matches-container">
+        <h2>Ultimos partidos</h2>
+        <div id="last-matches"></div>
+        
+
+    </div>
+
+    <button id = "restart-season-button"> Reiniciar Temporada </button>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="/src/index.js"></script>
+
+</body>
+</html>
