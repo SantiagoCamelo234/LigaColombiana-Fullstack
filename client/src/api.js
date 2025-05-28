@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/api"; 
+const URL = "https://ligacolombiana-fullstack-8.onrender.com/api"; 
 
 export const getTeams = async () => {
   try {
