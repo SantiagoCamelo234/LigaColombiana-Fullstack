@@ -15,7 +15,7 @@ app.use("/api", matchRouter)
 const startServer = async () => {
     try{
         await connectDB()
-        app.listen(PORT, '0.0.0.0', () => {
+        app.listen(PORT,  () => {
         console.log(`Servidor corriendo en http://localhost:${PORT}`)
     });
     }catch (error) {
